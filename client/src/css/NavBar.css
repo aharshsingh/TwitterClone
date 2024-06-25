@@ -1,17 +1,16 @@
 /* Basic reset and styling */
-body, ul, li {
+body, ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* Navbar styling */
 .navbar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh; /* Full height */
@@ -19,26 +18,33 @@ body, ul, li {
 
 }
 
-/* Logo styling */
 .navbar-logo img {
   height: 50px;
   margin-bottom: 20px;
 }
 
-/* Links styling */
 .navbar-links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  margin-bottom: -20px;
 }
 
-.navbar-links li {
-  margin: 10px 0;
+.navbar-links p{
+  margin-left: 20px;
+  color: #ffffff;
+  font-size: 25px;
+  margin-top: 0px;
+  font-weight: 200;
+}
+
+.LinkHome{
+  text-decoration: none;
 }
 
 .navbar-links a {
-  color: #1DA1F2;
+  color: #ffffff;
   text-decoration: none;
   font-size: 18px;
   width: 100%;
@@ -47,35 +53,20 @@ body, ul, li {
   border-radius: 4px;
 }
 
-.navbar-links a:hover {
+.post-button,
+.logout-button {
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
   background-color: #1DA1F2;
   color: white;
-}
-
-.navbar-actions {
-  margin-top: 150px;
-
-}
-
-.navbar-actions .post-button,
-.navbar-actions .logout-button {
-  width: 100%;
-  padding: 12px;
-  
-  border: none;
-  border-radius: 4px;
-  background-color: #1DA1F2;
-  color: white;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
-  text-align: center;
-  text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-bottom: 10px;
-  margin-left:15px
 }
 
-.navbar-actions .post-button:hover,
-.navbar-actions .logout-button:hover {
+.post-button:hover,
+.logout-button:hover {
   background-color: #87CEEB;
 }

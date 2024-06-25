@@ -1,0 +1,13 @@
+.feedContainer{
+    border: 2px solid rgb(146, 146, 146);
+    width: 600px;
+    height: 292px;
+    margin-top: 0px;
+}
+.feedContainer1{
+    border-left: 2px solid rgb(146, 146, 146);
+    border-right: 2px solid rgb(146, 146, 146);
+    border-bottom: 2px solid rgb(146, 146, 146);
+    width: 600px;
+    height: 2500px;
+}

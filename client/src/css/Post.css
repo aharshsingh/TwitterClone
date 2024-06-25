@@ -1,27 +1,22 @@
-/* src/components/TweetComponent.css */
-
 .tweet-form {
     max-width: 600px;
-    margin: 2em auto;
     padding: 2em;
-    border: 1px solid #e1e8ed;
-    border-radius: 8px;
-    background-color: #f5f8fa;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #000000;
   }
   
   .tweet-form textarea {
     width: 100%;
-    padding: 1em;
-    border: 1px solid #ccd6dd;
-    border-radius: 4px;
-    font-size: 16px;
+    font-size: 20px;
     font-family: Arial, sans-serif;
     resize: none;
-    box-sizing: border-box;
     margin-bottom: 1em;
+    border: none;
+    color:rgb(255, 255, 255) ;
   }
-  
+  .tweet-form textarea:focus {
+    border: none; 
+    outline: none;
+}
   .tweet-form input[type="file"] {
     display: block;
     margin-bottom: 1em;
@@ -53,3 +48,7 @@
     margin-top: 1em;
   }
   
+.chooseFile{
+  margin-top: 20px;
+  
+}

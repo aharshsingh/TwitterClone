@@ -1,8 +1,7 @@
 const Joi = require('joi');
 const CustomErrorHandler = require('../../customErrorHandler/customErrorHandler');
-const User = require('../../models/user');
+const Userinfo = require('../../models/user');
 const bcrypt = require('bcrypt');
-const JwtService = require('../../JWTService/JWTService');
 
 const registerController = {
     async register(req, res, next) {
@@ -23,7 +22,7 @@ const registerController = {
 
         // If user already exists in the database
         try {
-            const exist = await User.exists({ email: req.body.email });
+            const exist = await Userinfo.exists({ email: req.body.email });
             if (exist) {
                 return next(CustomErrorHandler.alreadyExists('Email is already registered'));
             }
@@ -36,27 +35,18 @@ const registerController = {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Prepare the model
-        const user = new User({
+        const user = new Userinfo({
             userName,
             email,
             password: hashedPassword,
         });
         
-        let access_token;
         try {
             const result = await user.save();
-            // Token
-            access_token = JwtService.sign({ _id: result._id, role: result.role });
-            refresh_token = JwtService.refreshTokenSign({ _id: result._id, role: result.role });
-            //database whitelist
-            // await RefreshToken.create({ token : refresh_token });
-            const refreshToken = new RefreshToken({ token: refresh_token, userName: req.body.userName });
-            await refreshToken.save();
         } catch (err) {
             return next(err);
         }
-        res.json({ access_token, refresh_token });
-        // res.send('Hello, you are now registered!');
+        res.send('Hello, you are now registered!');
     },
 };
 

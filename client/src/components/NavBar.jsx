@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/NavBar.css';
-
+import homeImage from '../public/house-solid (1).svg';
+import userImage from '../public/user-solid (2).svg'
 const NavBar = () => {
   return (
     <div className="navbar">
@@ -12,12 +13,12 @@ const NavBar = () => {
         </Link> */}
       </div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
+        <Link to="/" className='LinkHome'><li><div style={{display: "flex"}}><img style={{width: "30px", height:"30px"}} src={homeImage} alt='click to home'/><p>Home</p></div></li></Link>
+        <Link to="/profile" className='LinkHome'><li><div style={{display: "flex"}}><img style={{width: "30px", height:"30px"}} src={userImage} alt='click to home'/><p>Profile</p></div></li></Link>
       </ul>
-      <div className="navbar-actions" >
-        <Link to="/post" className="post-button">POST</Link><br/><br/><br/>
-        <Link to="/logout" style={{backgroundColor: 'white', color: '#1DA1F2', marginLeft:'5px'}} className="logout-button">Logout</Link>
+      <div style={{marginTop: "25px"}}>
+        <Link to="/post"><button className="post-button">POST</button></Link><br/><br/><br/>
+        <Link to="/logout"><button className="logout-button">LOGOUT</button></Link>
       </div>
     </div>
   );
