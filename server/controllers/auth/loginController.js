@@ -30,7 +30,7 @@ const loginController = {
             const token = JwtService.sign({ _id: user._id });
             const access_token = new AccessToken({ token });
             await access_token.save();
-            res.json({ access_token });
+            res.json(access_token);
         } catch (err) {
             return next(err);
         }
@@ -56,7 +56,7 @@ const loginController = {
             }
 
             try {
-                const {_id } = await JwtService.verify(accessToken.token)
+                const { _id } = JwtService.verify(accessToken.token)
                 userId = _id;
             } catch (error) {
                 return next(customErrorHandler.notAuthorized('Invaild access token'));
@@ -70,7 +70,6 @@ const loginController = {
         catch(err){
             return next(new Error('Something went, ' + err.message));
         }
-
         res.send('Successfully logged in.');
     }
 }

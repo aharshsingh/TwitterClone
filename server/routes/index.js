@@ -6,7 +6,7 @@ router.use(express.json());
 
 router.post('/register', registerController.register);
 router.post('/login', loginController.login);
-router.get('/verify', loginController.verify);
+router.post('/verify', loginController.verify);
 router.post('/logout', logoutController.logout);
 router.post('/tweetpost/:userID', tweetController.tweetpost);
 router.post('/profileUpdate/:userID', userController.profileUpdate);

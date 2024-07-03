@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../css/Signup.css';  // Import the CSS file
 
 const SignUp = () => {
-  const [username, setUsername] = useState('');
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -11,13 +11,12 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/signup', {
-        username,
+      const response = await axios.post('http://localhost:3000/register', {
+        userName,
         email,
         password,
       });
-      if (response.data.token) {
-        localStorage.setItem('token', response.data.token);
+      if (response.status === 200) {
         setMessage('Sign-up successful!');
       } else {
         setMessage('Sign-up failed. Please try again.');
@@ -30,20 +29,22 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
-      <h2>Sign Up</h2>
+      <h2 style={{color: "white"}}>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Username</label>
+          <label style={{color: "white"}}>Username</label>
           <input
+            style={{color: "white"}}
             type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
             required
           />
         </div>
         <div className="form-group">
-          <label>Email</label>
-          <input
+          <label style={{color: "white"}}>Email</label>
+          <input 
+            style={{color: "white"}}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -51,8 +52,9 @@ const SignUp = () => {
           />
         </div>
         <div className="form-group">
-          <label>Password</label>
+          <label style={{color: "white"}}>Password</label>
           <input
+            style={{color: "white"}}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
